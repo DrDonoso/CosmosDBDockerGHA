@@ -6,7 +6,10 @@ on:
 jobs:
   docker-compose-up:
     name: Docker compose up CosmosDB
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, ubuntu-20.04, ubuntu-latest, windows-latest, macos-latest] 
+    runs-on: ${{ matrix.os }}
     steps:
     
       - name: Checkout Branch Head
