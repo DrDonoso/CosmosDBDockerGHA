@@ -6,11 +6,12 @@ on:
 jobs:
   docker-compose-up:
     name: Docker compose up CosmosDB
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-18.04, ubuntu-20.04, ubuntu-22.04] 
-    runs-on: ${{ matrix.os }}
+    # strategy:
+    #   fail-fast: false
+    #   matrix:
+    #     os: [ubuntu-18.04, ubuntu-20.04, ubuntu-22.04] 
+    # runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
     steps:
     
       - name: Checkout Branch Head
@@ -18,11 +19,11 @@ jobs:
 
       - name: Run docker-compose up
         run: docker-compose up -d
-        shell: bash
+        shell: powershell
         
       - name: Run docker-compose up
-        shell: bash
+        shell: powershell
         run: |
-          sleep 60
+          Start-Sleep -Seconds 60
           docker ps -a
           docker logs azure-cosmosdb
