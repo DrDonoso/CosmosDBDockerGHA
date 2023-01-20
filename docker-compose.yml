@@ -2,10 +2,11 @@ version: "3.4"
 
 services:
   cosmosdb:
-    # image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
-    image: mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
+    # image: mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
     container_name: azure-cosmosdb
     hostname: azure.cosmosdb
+    privileged: true
     ports:
       - "8081:8081"
       - "10251:10251"
