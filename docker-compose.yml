@@ -2,7 +2,8 @@ version: "3.4"
 
 services:
   cosmosdb:
-    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
+    # image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
+    image: mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
     container_name: azure-cosmosdb
     hostname: azure.cosmosdb
     ports:
